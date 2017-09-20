@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TEMPLATE</title>
+<style>
+body {
+    background-color: gray;
+}
+</style>
+    </head>
+    <body>
+        <p>Menu</p>
+        <div id='no-openfin'></div>
+        <script>
+            const thisWin = fin.desktop.Window.getCurrent();
+            thisWin.bringToFront(() => thisWin.focus());
+            thisWin.addEventListener('blurred', () => thisWin.close());
+        </script>
+    </body>
+</html>
