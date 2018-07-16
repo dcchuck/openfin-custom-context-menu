@@ -1,21 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>TEMPLATE</title>
-<style>
-body {
-    background-color: gray;
-}
-</style>
-    </head>
-    <body>
-        <p>Menu</p>
-        <div id='no-openfin'></div>
-        <script>
-            const thisWin = fin.desktop.Window.getCurrent();
-            thisWin.bringToFront(() => thisWin.focus());
-            thisWin.addEventListener('blurred', () => thisWin.close());
-        </script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>TEMPLATE</title>
+    <style>
+        /* The container <div> - needed to position the dropdown content */
+
+        body {
+            position: relative;
+            display: block;
+            margin: 0px;
+            overflow: hidden;
+            font-family: "Segoe UI"
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+
+        .dropdown-content {
+            display: block;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        /* Links inside the dropdown */
+
+        .dropdown-content li {
+            position: relative;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            font-size: 9pt;
+            padding: 0.7em 1.5em;
+            padding-left: 40px;
+        }
+
+        .dropdown-content li {
+            transition: 0.3s;
+        }
+
+        /* Change color of dropdown links on hover */
+
+        .dropdown-content>li:hover {
+            background-color: #ebebeb
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="myDropdown" class="dropdown-content">
+        <li onclick="showDeveloperTools()">Show Developer Tools</li>
+        <li onclick="reloadApp()">Restart App</li>
+    </ul>
+    <script>
+        // On blur, hide this window
+        const thisWin = fin.desktop.Window.getCurrent();
+        const thisApp = fin.desktop.Application.getCurrent();
+        thisWin.addEventListener('blurred', () => thisWin.hide());
+
+        function showDeveloperTools() {
+            // This will show the devtools for the main window of the application
+            fin.desktop.System.showDeveloperTools(thisApp.uuid, thisApp.uuid);
+        }
+
+        function reloadApp() {
+            thisApp.restart();
+        }
+    </script>
+</body>
+
 </html>

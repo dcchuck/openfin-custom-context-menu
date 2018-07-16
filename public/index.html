@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>TEMPLATE</title>
-    </head>
-    <body>
-        <h1>Hello From OpenFin</h1>
-        <div id='no-openfin'></div>
-        <a href='child.html' id='childWindowAnchor'>Child Window</a>
-        <button id='openWin'>Child Window Same State</button>
-        <script src='main.js'></script>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <title>TEMPLATE</title>
+    <style>
+        body {
+            background-color: darkblue;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            padding: 10px;
+        }
+
+        pre {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Custom Context Menu</h1>
+    <p>
+        By setting "contextMenu": false in the startup_app options of your app.json, the default context menu will be hidden.
+    </p>
+    <p>
+        You can define your own context menu behavior with
+        <pre><code>document.addEventListener('contextmenu', contextMenuHandler);</code></pre>
+    </p>
+    <script src='main.js'></script>
+</body>
+
 </html>
